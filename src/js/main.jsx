@@ -8,11 +8,18 @@ import "bootstrap"
 // index.css'
 import '../styles/index.css'
 
-// components
-import Home from './components/Home';
+import SecondsCounter from '../components/SecondsCounter';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+let seconds = 0
+
+const root = ReactDOM.createRoot(document.querySelector("#app"));
+
+setInterval(() => { root.render(<SecondsCounter seconds={seconds} />); seconds++ }, 1000)
+
+
+
+
+
+// Si usas una version de react anterior a la 18 puedes usar
+// ReactDOM.render de esta manera
+// ReactDOM.render(<Card />, document.quertSelector('#root'));
